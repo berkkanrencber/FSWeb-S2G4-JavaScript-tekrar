@@ -50,8 +50,8 @@ function KareninAlani(kenaruzunlugu) {
 	4. Hesaplanan çemberin çevresi döndürülecektir.
 */
 
-function CemberinCevresi(/* kodlar buraya */) {
-  /* kodlar buraya */
+function CemberinCevresi(radius) {
+  return 2*pi*radius
 }
 
 /* (Oto test yok) Yukarıdaki CemberinCevresi fonksiyonunu yarıçap = 5 vererek aşağıda çalıştırıp, sonucu konsolda gözlemleyin (console.log)  */
@@ -64,8 +64,8 @@ function CemberinCevresi(/* kodlar buraya */) {
 	4. Hesaplanan çemberin alanı döndürülecektir.
 */
 
-function CemberinAlani(/* kodlar buraya */) {
-  /* kodlar buraya */
+function CemberinAlani(radius,pi) {
+  return Math.pow(radius,2)*pi
 }
 
 /* (Oto test yok) Yukarıdaki CemberinAlani fonksiyonunu yarıçap = 15 vererek aşağıda çalıştırıp, sonucu konsolda gözlemleyin (console.log)  */
@@ -98,28 +98,68 @@ let ucetambolunenler,
   tekraredensayilar;
 
 // 3a çözümü
-
-/* kodlar buraya */
+enkucuk = 1000;
+enbuyuk = 0;
+for(let i = 0; i<sayilar.length; i++){
+  if(enkucuk>sayilar[i]){
+    enkucuk = sayilar[i]
+  }
+  if(enbuyuk<sayilar[i]){
+    enbuyuk = sayilar[i]
+  }
+}
 
 // 3b çözümü:
-
-/* kodlar buraya */
+ucetambolunenler = [];
+sayilar.forEach((number)=>{
+  if(number%3==0){
+    ucetambolunenler.push(number)
+  }
+})
 
 // 3c çözümü:
 
-/* kodlar buraya */
+ucebolunenlerintoplami = sayilar.reduce((total,number)=>{
+  if(number%3==0){
+    total+=number
+  }
+  return total
+},0)
 
 // 3d çözümü
 
-/* kodlar buraya */
+besyuzdenkucuksayilar = []
+besyuzdenkucuksayilar = sayilar.filter((number)=>{
+  if(number<500){
+    return number
+  }
+})
 
 // 3e çözümü
 
-/* kodlar buraya */
+siralisayilar = [...besyuzdenkucuksayilar]
+siralisayilar.sort((a,b)=> a-b)
 
 // 3f çözümü
 
-/* kodlar buraya */
+let output = {}
+
+for(let i=0; i<sayilar.length; i++){
+  if(sayilar[i] in output){
+    output[sayilar[i]]++;
+  }else{
+    output[sayilar[i]] = 1;
+  }
+}
+
+let outputKeys = Object.keys(output)
+tekraredensayilar = []
+
+for(let i=0; i< outputKeys.length; i++){
+  if(output[outputKeys[i]]>1){
+    tekraredensayilar.push(`${outputKeys[i]} sayısı ${output[outputKeys[i]]} kere tekrar edilmiştir`)
+  }
+}
 
 /*  Bu satırın aşağısındaki kodları lütfen değiştirmeyin  */
 
